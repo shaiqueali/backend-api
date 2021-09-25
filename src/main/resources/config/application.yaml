@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:backend-api}
+  webflux:
+    basePath: /backend-api
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    discovery:
+      enabled: false
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bank_docs
+      grid-fs-database: bank_docs
+      auto-index-creation: true
+      repositories:
+        enabled: true
+
+management:
+  server:
+    port: 9089
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, info, prometheus, beans
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com:
+      assignment:
+        api: TRACE
+      zalando:
+        logbook: TRACE
+
+server:
+  port: 8089
+
+logbook:
+  include:
+    - /**
+  exclude:
+    - /actuator/**
+    - ${server.servlet.contextPath}/webjars/**
+    - ${server.servlet.contextPath}/v2/api-docs/**
+    - ${server.servlet.contextPath}/swagger-ui.html/**
+    - ${server.servlet.contextPath}/swagger-resources/**
+  filter.enabled: true
+  format.style: splunk
+  strategy: default
+  obfuscate:
+    parameters:
+      - access_token
+      - password
+      - token
+
+
+client:
+  jsonplaceholder:
+    create-post-uri: https://jsonplaceholder.typicode.com/posts
+    create-comment-uri: https://jsonplaceholder.typicode.com/comments
+
+
