@@ -1,6 +1,6 @@
 package com.assignment.api.config;
 
-import com.assignment.api.feature.media.repository.BankDocumentRepository;
+import com.assignment.api.media.repository.BankDocumentRepository;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.InsecureTrustManagerFactory;

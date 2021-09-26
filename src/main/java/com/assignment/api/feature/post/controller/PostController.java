@@ -1,10 +1,10 @@
-package com.assignment.api.feature.post.web.controller;
+package com.assignment.api.feature.post.controller;
 
 
 import com.assignment.api.annotation.DefaultApiResponse;
 import com.assignment.api.client.jps.dto.JphCreatePostDataRequest;
 import com.assignment.api.client.jps.dto.JphCreatePostDataResponse;
-import com.assignment.api.feature.post.web.facade.PostFacade;
+import com.assignment.api.feature.post.facade.PostFacade;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AccessLevel;
@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/posts")
+@RequestMapping("/v1/post")
 @Api(tags = "Post", description = "Post")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PostController {

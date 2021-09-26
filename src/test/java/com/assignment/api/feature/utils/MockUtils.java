@@ -1,4 +1,4 @@
-package com.assignment.api.feature.comment.controller.utils;
+package com.assignment.api.feature.utils;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

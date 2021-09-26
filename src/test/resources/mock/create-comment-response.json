@@ -1,7 +1,7 @@
 {
-  "id": "101",
-  "postId": "string",
-  "name": "string",
-  "email": "string",
-  "body": "string"
+  "id": 101,
+  "postId": 1,
+  "name": "comment",
+  "email": "email@abc.com",
+  "body": "body"
 }

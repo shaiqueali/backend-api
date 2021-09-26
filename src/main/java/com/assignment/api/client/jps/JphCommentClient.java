@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -27,7 +28,7 @@ public class JphCommentClient {
     JphClientConfigProperties jphClientConfigProperties;
 
     public Mono<JphCreateCommentDataResponse> createComment(final JphCreateCommentDataRequest request) {
-        log.info("Start calling json placeholder create comment api with request [{}]", request);
+        log.info("Calling json placeholder create comment with request [{}]", request);
         final String url = UriComponentsBuilder.fromUriString(jphClientConfigProperties.getCreatePostUri()).toUriString();
         log.debug("json placeholder create comment api is being called with url [{}]", url);
         final Mono<JphCreateCommentDataResponse> response = webClient.post()
@@ -36,7 +37,35 @@ public class JphCommentClient {
                 .body(Mono.just(request), JphCreatePostDataRequest.class)
                 .retrieve()
                 .bodyToMono(JphCreateCommentDataResponse.class);
-        log.info("Finish calling json placeholder create comment api with response [{}]", response);
+        log.info("Comment created with id [{}]", response);
         return response;
+    }
+
+    public Mono<JphCreateCommentDataResponse> getCommentById(final Integer id) {
+        log.info("Start calling json placeholder get comment with id [{}]", id);
+        final String url = UriComponentsBuilder.fromUriString(jphClientConfigProperties.getGetCommentUri()).buildAndExpand(id).toUriString();
+        log.debug("json placeholder get comment api is being called with url [{}]", url);
+        final Mono<JphCreateCommentDataResponse> response = webClient.get()
+                .uri(url)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToMono(JphCreateCommentDataResponse.class);
+        log.info("Comment fetched [{}]", response);
+        return response;
+    }
+
+    public Flux<JphCreateCommentDataResponse> getCommentByPostId(final Integer postId) {
+        log.info("Calling json placeholder get comments by post id [{}] api", postId);
+        String url = UriComponentsBuilder
+                .fromUriString(jphClientConfigProperties.getGetCommentsByPostUri()).queryParam("postId", postId).toUriString();
+        log.debug("json placeholder get comments by post id is being called with url [{}]", url);
+        final Flux<JphCreateCommentDataResponse> response = webClient.get()
+                .uri(url)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToFlux(JphCreateCommentDataResponse.class);
+        log.info("Comments by post id [{}] fetch - response [{}]", postId, response);
+        return response;
+
     }
 }

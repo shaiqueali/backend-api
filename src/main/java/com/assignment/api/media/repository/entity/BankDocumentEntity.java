@@ -1,4 +1,4 @@
-package com.assignment.api.feature.media.repository.entity;
+package com.assignment.api.media.repository.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

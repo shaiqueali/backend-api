@@ -21,4 +21,8 @@ public class JphClientConfigProperties {
 
     String createCommentUri;
 
+    String getCommentUri;
+
+    String getCommentsByPostUri;
+
 }

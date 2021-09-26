@@ -1,4 +1,4 @@
-package com.assignment.api.feature.post.web.facade;
+package com.assignment.api.feature.post.facade;
 
 import com.assignment.api.client.jps.JphPostClient;
 import com.assignment.api.client.jps.dto.JphCreatePostDataRequest;

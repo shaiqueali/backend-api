@@ -7,7 +7,8 @@ public enum ErrorCodeEnum implements ErrorPrinter {
 
     INVALID_PARAM(HttpStatus.BAD_REQUEST),
     JPS_CLIENT_API(HttpStatus.BAD_REQUEST),
-    UNAUTHORIZED(HttpStatus.UNAUTHORIZED);
+    UNAUTHORIZED(HttpStatus.UNAUTHORIZED),
+    FILE_NOT_FOUND(HttpStatus.BAD_REQUEST);
 
     ErrorCodeEnum(HttpStatus httpStatus) {
         this.httpStatus = httpStatus;

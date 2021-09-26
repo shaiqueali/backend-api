@@ -65,5 +65,7 @@ client:
   jsonplaceholder:
     create-post-uri: https://jsonplaceholder.typicode.com/posts
     create-comment-uri: https://jsonplaceholder.typicode.com/comments
+    get-comment-uri: https://jsonplaceholder.typicode.com/comments/{id}
+    get-comments-by-post-uri: https://jsonplaceholder.typicode.com/comments
 
 

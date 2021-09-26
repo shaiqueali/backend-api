@@ -1,4 +1,4 @@
-package com.assignment.api.feature.media.web.dto;
+package com.assignment.api.media.web.dto;
 
 import lombok.Data;
 

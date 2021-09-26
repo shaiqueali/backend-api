@@ -28,7 +28,7 @@ class CommentFacadeTest {
     CommentFacade commentFacade;
 
     @Test
-    void testCreateComment() {
+    public void testCreateComment() {
         when(jphCommentClient.createComment(any(JphCreateCommentDataRequest.class))).thenReturn(Mono.just(new JphCreateCommentDataResponse()));
         commentFacade.createComment(new JphCreateCommentDataRequest());
         verify(jphCommentClient, atLeastOnce()).createComment(any(JphCreateCommentDataRequest.class));
