@@ -30,7 +30,7 @@ import reactor.core.publisher.Mono;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/document")
+@RequestMapping("/v1/documents")
 @Api(tags = "Document", description = "Documents")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class BankDocumentController {

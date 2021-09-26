@@ -40,7 +40,7 @@ class CommentControllerTest {
         final JphCreateCommentDataRequest request = Optional.ofNullable(MockUtils.getResource("mock/create-comment-request.json", JphCreateCommentDataRequest.class)).orElse(new JphCreateCommentDataRequest());
         final JphCreateCommentDataResponse response = Optional.ofNullable(MockUtils.getResource("mock/create-comment-response.json", JphCreateCommentDataResponse.class)).orElse(new JphCreateCommentDataResponse());
         when(commentFacade.createComment(any(JphCreateCommentDataRequest.class))).thenReturn(Mono.just(response));
-        webTestClient.post().uri("/v1/comment")
+        webTestClient.post().uri("/v1/comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(Mono.just(request), JphCreatePostDataRequest.class)
                 .exchange()
@@ -60,7 +60,7 @@ class CommentControllerTest {
         final Integer commentId = 1;
         final JphCreateCommentDataResponse response = Optional.ofNullable(MockUtils.getResource("mock/create-comment-response.json", JphCreateCommentDataResponse.class)).orElse(new JphCreateCommentDataResponse());
         when(commentFacade.getCommentById(any(Integer.class))).thenReturn(Mono.just(response));
-        webTestClient.get().uri("/v1/comment/{id}", commentId)
+        webTestClient.get().uri("/v1/comments/{id}", commentId)
                 .exchange()
                 .expectStatus()
                 .isOk()

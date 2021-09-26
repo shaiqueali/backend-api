@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/post")
+@RequestMapping("/v1/posts")
 @Api(tags = "Post", description = "Post")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PostController {

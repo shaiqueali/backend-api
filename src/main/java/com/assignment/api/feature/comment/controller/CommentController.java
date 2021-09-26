@@ -28,7 +28,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/comment")
+@RequestMapping("/v1/comments")
 @Api(tags = "Comment", description = "Comment")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class CommentController {

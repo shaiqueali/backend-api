@@ -37,7 +37,7 @@ public class PostControllerTest {
         final JphCreatePostDataRequest request = Optional.ofNullable(MockUtils.getResource("mock/create-post-request.json", JphCreatePostDataRequest.class)).orElse(new JphCreatePostDataRequest());
         final JphCreatePostDataResponse response = Optional.ofNullable(MockUtils.getResource("mock/create-post-response.json", JphCreatePostDataResponse.class)).orElse(new JphCreatePostDataResponse());
         when(postFacade.createPost(any(JphCreatePostDataRequest.class))).thenReturn(Mono.just(response));
-        webTestClient.post().uri("/v1/post")
+        webTestClient.post().uri("/v1/posts")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(Mono.just(request), JphCreatePostDataRequest.class)
                 .exchange()
